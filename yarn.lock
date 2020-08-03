@@ -2597,11 +2597,6 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-swagger-ui-dist@^3.30.2:
-  version "3.30.2"
-  resolved "https://registry.npm.taobao.org/swagger-ui-dist/download/swagger-ui-dist-3.30.2.tgz#f3171c81d23709e834506d13bf9bba7ac4883abf"
-  integrity sha1-8xccgdI3Ceg0UG0Tv5u6esSIOr8=
-
 table@^5.2.3:
   version "5.4.6"
   resolved "https://registry.npm.taobao.org/table/download/table-5.4.6.tgz#1292d19500ce3f86053b05f0e8e7e4a3bb21079e"
