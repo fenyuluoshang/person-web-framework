@@ -14,7 +14,7 @@ export class UserController {
   })
   @Post('/login')
   @ResponseSchema(LoginResponse)
-  loginAction (@Body() requestForm:LoginForm): LoginResponse {
+  loginAction (@Body() requestForm: LoginForm): LoginResponse {
     console.log(requestForm)
     const res = new LoginResponse(true, null, null, 1, '测试用户')
     return res

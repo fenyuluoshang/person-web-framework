@@ -24,7 +24,9 @@ export default async function start (): Promise<void> {
      * 生成openapi文档
      */
     const storage = getMetadataArgsStorage()
-    const schemas = validationMetadatasToSchemas()
+    const schemas = validationMetadatasToSchemas({
+      refPointerPrefix: '#/components/schemas/'
+    })
     const spec = routingControllersToSpec(storage, option, {
       components: { schemas },
       info: { title: 'Demo', version: '0.0.1' }

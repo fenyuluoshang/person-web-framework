@@ -1,27 +1,34 @@
 import BaseResponse from '../BaseResponse'
-import { IsObject, IsNumber, IsString } from 'class-validator'
+import { IsNumber, IsString, ValidateNested } from 'class-validator'
+import { Type } from 'class-transformer'
+import { JSONSchema } from 'class-validator-jsonschema'
 
-class LoginData {
+export class LoginData {
 
-    @IsNumber()
-    userId:number
+  @IsNumber()
+  userId: number
 
-    @IsString()
-    nickName:string
+  @IsString()
+  nickName: string
+
 }
 
 export default class LoginResponse extends BaseResponse {
 
-    @IsObject()
-    data?:LoginData
+  @JSONSchema({
+    description: '登录回调'
+  })
+  @ValidateNested()
+  @Type(() => LoginData)
+  data: LoginData
 
-    constructor (success:boolean, code?:number, msg?:string, userId?:number, nickName?:string) {
-      super(success, code, msg)
-      if (success) {
-        this.data = new LoginData()
-        this.data.userId = userId
-        this.data.nickName = nickName
-      }
+  constructor (success: boolean, code?: number, msg?: string, userId?: number, nickName?: string) {
+    super(success, code, msg)
+    if (success) {
+      this.data = new LoginData()
+      this.data.userId = userId
+      this.data.nickName = nickName
     }
+  }
 
 }
