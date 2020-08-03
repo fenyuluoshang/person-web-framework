@@ -6,7 +6,7 @@ import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { UserController } from './controller/UserController'
 import colors from 'colors'
 
-export default function start (): void {
+export default async function start (): Promise<void> {
 
   const app = express()
 
