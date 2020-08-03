@@ -4,6 +4,7 @@ import { useExpressServer, RoutingControllersOptions, getMetadataArgsStorage } f
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { UserController } from './controller/UserController'
+import colors from 'colors'
 
 export default function start (): void {
 
@@ -37,9 +38,10 @@ export default function start (): void {
 
     app.use('/swagger', express.static(path.join(__dirname, '../../swagger-dist')))
 
+    console.log(colors.yellow('system running with developement mode, api path is http://127.0.0.1:3000/swagger/index.html'))
   }
 
   app.listen(3000, () => {
-    console.log('sever start')
+    console.log(colors.green(`server start at ${(new Date()).toString()} on http://127.0.0.1:3000`))
   })
 }

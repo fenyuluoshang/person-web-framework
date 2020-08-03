@@ -15,6 +15,7 @@
         "class-transformer": "^0.2.3",
         "class-validator": "^0.12.2",
         "class-validator-jsonschema": "^2.0.2",
+        "colors": "^1.4.0",
         "conf": "^7.1.1",
         "eslint": "^7.5.0",
         "express": "^4.17.1",
