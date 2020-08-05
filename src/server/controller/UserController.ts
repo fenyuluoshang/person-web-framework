@@ -3,14 +3,13 @@ import { LoginForm } from '../res/request/user/LoginForm'
 import LoginResponse from '../res/response/user/LoginResponse'
 import { ResponseSchema, OpenAPI } from 'routing-controllers-openapi'
 
-@OpenAPI({
-  description: '用户'
-})
+@OpenAPI({})
 @JsonController('/api/user')
 export class UserController {
 
   @OpenAPI({
-    description: '测试登录接口'
+    summary: '测试登录接口',
+    description: '这是一个示例接口，summery将会显示在行内，description将会显示在描述中'
   })
   @Post('/login')
   @ResponseSchema(LoginResponse)
