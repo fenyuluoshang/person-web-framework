@@ -4,7 +4,6 @@ import { useExpressServer, RoutingControllersOptions, getMetadataArgsStorage } f
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { UserController } from './controller/UserController'
-import Session from 'express-session'
 import colors from 'colors'
 
 export default async function start (): Promise<void> {
