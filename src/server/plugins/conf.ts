@@ -10,19 +10,21 @@ if (!fs.existsSync(confPath)) {
 }
 
 type DefaultConf = {
-  db?:'mysql'|'sqlite'
-  mysql?:{
-    user?:string,
-    pass?:string,
-    host?:string,
-    port?:number
-  },
-  redis?:{
-    [name:string]:{
-      host?:string,
-      db?:number,
-      port?:string,
-      identify?:string
+  mysql?: {
+    [name: string]: {
+      user?: string,
+      pass?: string,
+      host?: string,
+      port?: number,
+      database?: string
+    },
+  }
+  redis?: {
+    [name: string]: {
+      host?: string,
+      db?: number,
+      port?: string,
+      identify?: string
     }
   }
 }

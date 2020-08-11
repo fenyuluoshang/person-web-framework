@@ -27,6 +27,6 @@ const formatter = CLIEngine.getFormatter()
 console.log(formatter(errorReport))
 
 /**
- * 无错状态启动服务
+ * 启动服务
  */
 start()

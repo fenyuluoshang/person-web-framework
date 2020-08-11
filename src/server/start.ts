@@ -4,6 +4,7 @@ import { useExpressServer, RoutingControllersOptions, getMetadataArgsStorage } f
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { UserController } from './controller/UserController'
+import Session from 'express-session'
 import colors from 'colors'
 
 export default async function start (): Promise<void> {
@@ -12,6 +13,7 @@ export default async function start (): Promise<void> {
 
   // 控制器的配置
   const option: RoutingControllersOptions = {
+    middlewares: [],
     controllers: [UserController]
   }
 
@@ -25,8 +27,12 @@ export default async function start (): Promise<void> {
      */
     const storage = getMetadataArgsStorage()
     const schemas = validationMetadatasToSchemas({
+      // refPointerPrefix 必须设置，否则无法对象嵌套
       refPointerPrefix: '#/components/schemas/'
     })
+    /**
+     * openApi3对象
+     */
     const spec = routingControllersToSpec(storage, option, {
       components: { schemas },
       info: { title: 'Demo', version: '0.0.1' }

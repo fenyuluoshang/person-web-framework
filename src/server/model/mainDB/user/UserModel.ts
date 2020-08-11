@@ -1,5 +1,8 @@
 import { Model, Table, AutoIncrement, Column, PrimaryKey } from 'sequelize-typescript'
 
+/**
+ * 基础用户表
+ */
 @Table
 export default class UserModel extends Model<UserModel> {
 
@@ -10,5 +13,8 @@ export default class UserModel extends Model<UserModel> {
 
   @Column
   userName: string
+
+  @Column
+  passWord: string
 
 }

@@ -11,7 +11,7 @@ module.exports = {
     'standard'
   ],
   rules: {
-    /** 4空格 */
+    /** 2空格 */
     indent: [
       'error',
       2
