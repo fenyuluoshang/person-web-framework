@@ -7,14 +7,22 @@ import { UserController } from './controller/UserController'
 import conf from './plugins/conf'
 import session from './plugins/session'
 import colors from 'colors'
+import { initAll } from './plugins/sequelize'
 
 export default async function start (): Promise<void> {
 
   const app = express()
 
+  // 填充启动时执行部分
+
+  // start mysql connect
+  await initAll()
+
+  app.use(session)
+
   // 控制器的配置
   const option: RoutingControllersOptions = {
-    middlewares: [session],
+    middlewares: [],
     controllers: [UserController]
   }
 

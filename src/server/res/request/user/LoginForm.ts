@@ -7,12 +7,12 @@ export class LoginForm {
       description: '用户名'
     })
     @IsString()
-    user:string
+    userName: string
 
     @JSONSchema({
       description: '密码'
     })
     @IsString()
-    password:string
+    password: string
 
 }

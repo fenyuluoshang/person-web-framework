@@ -1,5 +1,6 @@
-import { Sequelize } from 'sequelize/types'
+import { Sequelize } from 'sequelize-typescript'
 import conf from './conf'
+import path from 'path'
 
 // 初始化数据库连接
 const mainDBConf = conf.get('mysql').main
@@ -10,7 +11,8 @@ export const mainDB = new Sequelize({
   username: mainDBConf.user,
   password: mainDBConf.pass,
   database: mainDBConf.database,
-  timezone: '+08:00'
+  timezone: '+08:00',
+  models: [path.join(__dirname, '../model/mainDB/**/*.ts')]
 })
 
 export async function initAll (): Promise<void> {

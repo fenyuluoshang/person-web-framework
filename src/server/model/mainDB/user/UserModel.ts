@@ -15,6 +15,9 @@ export default class UserModel extends Model<UserModel> {
   userName: string
 
   @Column
+  nickName: string
+
+  @Column
   passWord: string
 
 }

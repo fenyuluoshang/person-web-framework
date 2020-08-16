@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 
 const confPath = path.join(__dirname, '../../../conf')
-const confName = 'defalut.json'
+const confName = 'default'
 
 if (!fs.existsSync(confPath)) {
   fs.mkdirSync(confPath)
@@ -38,7 +38,8 @@ type DefaultConf = {
 }
 
 const conf = new Conf<DefaultConf>({
-  cwd: path.join(confPath + confName)
+  cwd: path.join(confPath),
+  configName: confName
 })
 
 export default conf
