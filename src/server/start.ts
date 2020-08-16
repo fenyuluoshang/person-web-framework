@@ -4,6 +4,8 @@ import { useExpressServer, RoutingControllersOptions, getMetadataArgsStorage } f
 import { routingControllersToSpec } from 'routing-controllers-openapi'
 import { validationMetadatasToSchemas } from 'class-validator-jsonschema'
 import { UserController } from './controller/UserController'
+import conf from './plugins/conf'
+import session from './plugins/session'
 import colors from 'colors'
 
 export default async function start (): Promise<void> {
@@ -12,7 +14,7 @@ export default async function start (): Promise<void> {
 
   // 控制器的配置
   const option: RoutingControllersOptions = {
-    middlewares: [],
+    middlewares: [session],
     controllers: [UserController]
   }
 
@@ -45,10 +47,10 @@ export default async function start (): Promise<void> {
 
     app.use('/swagger', express.static(path.join(__dirname, '../../swagger-dist')))
 
-    console.log(colors.yellow('system running with developement mode, api path is http://127.0.0.1:3000/swagger/index.html'))
+    console.log(colors.yellow(`system running with developement mode, api path is http://127.0.0.1:${conf.get('system.port', 3000)}/swagger/index.html`))
   }
 
-  app.listen(3000, () => {
-    console.log(colors.green(`server start at ${(new Date()).toString()} on http://127.0.0.1:3000`))
+  app.listen(conf.get('system.port', 3000), () => {
+    console.log(colors.green(`server start at ${(new Date()).toString()} on http://127.0.0.1:${conf.get('system.port', 3000)}`))
   })
 }

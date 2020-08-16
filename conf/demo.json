@@ -1,0 +1,23 @@
+{
+    "system": {
+        "port": 3000,
+        "sessionRedis": "session"
+    },
+    "mysql": {
+        "main": {
+            "user": "root",
+            "pass": "root",
+            "host": "127.0.0.1",
+            "port": 3306,
+            "database": "user"
+        }
+    },
+    "redis": {
+        "session": {
+            "host": "127.0.0.1",
+            "db": 0,
+            "port": 6379
+        }
+    }
+
+}

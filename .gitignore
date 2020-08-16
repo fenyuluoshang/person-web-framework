@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/conf/*.json
+!/conf/demo.json
 
 # local env files
 .env.local

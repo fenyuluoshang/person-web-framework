@@ -10,6 +10,14 @@ if (!fs.existsSync(confPath)) {
 }
 
 type DefaultConf = {
+  system: {
+    port?: number,
+    baseUrl?: string,
+    session?: {
+      type: string
+      redis?: string
+    }
+  },
   mysql?: {
     [name: string]: {
       user?: string,
@@ -23,7 +31,7 @@ type DefaultConf = {
     [name: string]: {
       host?: string,
       db?: number,
-      port?: string,
+      port?: number,
       identify?: string
     }
   }
